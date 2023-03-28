@@ -8,6 +8,6 @@ namespace UdemyIOC.Console
 {
     public class Product
     {
-
+        public int Id { get; set; }
     }
 }
