@@ -1,0 +1,30 @@
+
+1. Adým Tighly Coupled Class
+
+product nesnesi
+DAL katmanýnda product nesneleri oluþturup database gibi oluþturulan Product larý GetProducts() metodu ile return ettik.
+BL Businnes katmanýnda Dal türünde _dal property si oluþturduk.
+BL yapýcý metodunda ise _dal property sine DAL sýnýfý örneðini verdik.Yani yeni bir DAL sýnýfý üretmiþ olduk.
+BL classýnada Product larý getireceðimiz List<Product> türünde metod tanýmladýk ve metoddan geriye _dal dan DAL classýndaki GetProduct metodu ile Product larý aldýk.
+
+2. Adým Factory Pattern ile IOC implementation
+
+Bizim örneðimizde A classýmýz BL e karþýlýk geliyor. B clasýmýz DAL a karþýlý geliyor.
+BL classý DAL ý kendi üretmrsin, dýþsrýdan gelsin.Dýþarýdan gelmesi için Factory Pattern tasarým kalýbýný kullanýcaz kullanýcaz.
+Factory Pattern tasarým kalýbýnýn an görevi obje üretmekle ilgilidir.
+
+DALFactory Classý oluþturdum. Bunu class bana DAL nesne örneði dönecek.
+BL yapýcý meetodunda DALFactory classýndaki GetDal metodundan aldým.
+
+3. Adým Abstraction oluþturarak DIP implementation
+
+Projemize Dependency Injection prensibini implemente ederek soyutlama iþlemi gerçekleþtiricez.
+Yani 2 classýmýz birbirini bilmeyecek. Þaun BL ve DAL birbirlerini biliyorlar.
+Ama araya interface yada abstract class koyarsam bu 2 class birbirlerini bilemez.Bu projede interface kullanýcaz.
+IDAL interfacesi oluþturduk ve  List<Product> GetProducts(); ý tanýmladýk. Bu interfaceyide DAL classýna implemente ettik.
+
+
+4. Adým Dependency Injection(DI) implementation
+
+BL ile DAL arasýndaki baðý Dependency Injection tasarým kalýbý ile biraz daha zayýflatýcaz
+
